@@ -3,7 +3,7 @@ DNA = string(importdata('DNA_Sequence.txt'));
 %% Initialize dictionary with character set and set codes to each
 % Define the character set and codes
 characters = {'A', 'C', 'G', 'T'};
-codes = [65, 67, 71, 84];
+codes = [1, 2, 3, 4];
 
 % Create the container map object
 D1 = containers.Map(characters, codes);
@@ -11,7 +11,7 @@ D1 = containers.Map(characters, codes);
 %% STRING = first character of I/P file
 PREV = DNA{1}(1); %G
 
-code = 256; 
+code = 5; 
 
 index = {}; 
 output_code = {};
@@ -45,10 +45,15 @@ display(index)
 Compressed_Codes = D1; %Compressed (51) + Entry (A,T,G,C) 
 display(Compressed_Codes);
 
-output_code{end+1} = D1(PREV);
+output_code{end+1} = D1(PREV)
 display(output_code);
 
 display(D2) % Entry -> Output
+
+maximum = max(cell2mat(output_code))
+
+
+bit_count_code = 6 * length(output_code)
 
 %{
 new = DNA{1}(1);

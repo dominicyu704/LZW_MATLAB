@@ -110,3 +110,12 @@ OLD = ''
 class(OLD)
 %}
 
+
+num_of_bits = 0;
+
+while (2^(num_of_bits)) - 1 <= maximum
+    num_of_bits = num_of_bits + 1;
+end
+
+
+bit_count_code = num_of_bits * length(output_code)
